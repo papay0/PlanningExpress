@@ -54,13 +54,20 @@ function merge_events(e, f) {
     return f
 }
 
+function split_colors(colors) {
+    return colors.match(/.{1,3}/g)
+}
+
 function fc_event(event, event_callback) {
+    colors = split_colors(event.getFirstPropertyValue('color'))
     e = {
         title:event.getFirstPropertyValue('summary'),
         url:event.getFirstPropertyValue('url'),
         id:event.getFirstPropertyValue('uid'),
         className:['event-'+an_filter(event.getFirstPropertyValue('uid'))],
-        allDay:false
+        allDay:false,
+        backgroundColor: 'rgb('+colors[0]+','+colors[1]+','+colors[2]+')',
+        textColor: 'rgb(0,0,0)'
     }
     try {
         e['start'] = event.getFirstPropertyValue('dtstart').toJSDate()

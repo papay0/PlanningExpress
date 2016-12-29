@@ -52,8 +52,9 @@ $('#calendar').fullCalendar({
         start: '2016-12-28'
         }, {
         title: 'event2',
-        start: '2010-01-05',
-        end: '2010-01-07'
+        start: '2016-12-29T16:30:00',
+        end: '2016-12-29',
+        backgroundColor: 'rgb(255,0,0)'
         }, {
         title: 'event3',
         start: '2010-01-09T12:30:00',
