@@ -25,13 +25,24 @@ function expand_recur_events(start, end, timezone, events_callback) {
     events_callback(events)
 }
 
+function containsEvent(events, event) {
+    for (e in events) {
+        if (events[e].title == event.title && String(events[e].start) == String(event.start) && String(events[e].end) == String(event.end)) {
+            return true;
+        }
+    }
+    return false
+}
+
 function fc_events(ics, event_properties) {
     events = []
     ical_events(
         ics,
         function(event){
             fc_event(event, function(event){
-                events.push(merge_events(event_properties, event))
+                if (!containsEvent(events, event)) {
+                    events.push(merge_events(event_properties, event))
+                }
             })
         },
         function(event){
