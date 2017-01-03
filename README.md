@@ -1,9 +1,15 @@
 # PlanningExpress
 
+### Todos global
+
+- [x] Google calendar
+- [x] .ics edt
+
 ### Todos Front-end
 
- - [ ] Fix CSS overlapping event
- - [x] Think about a className system to show different color for different subject
+ - [ ] Fix CSS overlapping events
+ - [ ] If same event same hour, then display only one event
+ - [x] Color from .ics
  
 ### Todos Back-end
 

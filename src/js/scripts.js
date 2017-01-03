@@ -1,6 +1,6 @@
 ics_sources = [
-    // {url:'ics/ADECal.ics',event_properties:{color:'blue', editable: false}},
-    // {url:'ics/cloud.ics',event_properties:{color:'red', editable: false}},
+    //{url:'ics/ADECal.ics',event_properties:{color:'blue', editable: false}},
+    //{url:'ics/cloud.ics',event_properties:{color:'red', editable: false}},
     {url:'https://www.etud.insa-toulouse.fr/planning/index.php?gid=380%20384&wid=1&ics=1&planex=2',event_properties:{color:'green', editable: false}}
     // https://www.etud.insa-toulouse.fr/planning/index.php?gid=380%20384%20554&wid=1&ics=1&planex=2
 ]
@@ -41,6 +41,8 @@ $('#calendar').fullCalendar({
     editable: true,
     locale: 'fr',
     defaultView: 'agendaWeek',
+    height: 800,
+    // contentHeight: 'auto',
     eventLimit: true, // allow "more" link when too many events
     googleCalendarApiKey: 'AIzaSyA81JdGA7DKjYHRoo37CL06J5bXSq5pnFQ',
     events: 
