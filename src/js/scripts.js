@@ -41,8 +41,7 @@ $('#calendar').fullCalendar({
     editable: true,
     locale: 'fr',
     defaultView: 'agendaWeek',
-    height: 800,
-    // contentHeight: 'auto',
+    minTime: '07:45:00',
     eventLimit: true, // allow "more" link when too many events
     googleCalendarApiKey: 'AIzaSyA81JdGA7DKjYHRoo37CL06J5bXSq5pnFQ',
     events: 
