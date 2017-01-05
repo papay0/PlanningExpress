@@ -41,7 +41,7 @@ $('#calendar').fullCalendar({
     editable: true,
     locale: 'fr',
     defaultView: 'agendaWeek',
-     height: 700,
+    height: 700,
     scrollTime: '07:45:00',
     // slotEventOverlap: false,
     eventLimit: true, // allow "more" link when too many events

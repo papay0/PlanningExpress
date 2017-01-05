@@ -25,23 +25,22 @@ function expand_recur_events(start, end, timezone, events_callback) {
     events_callback(events)
 }
 
-function containsEvent(events, event) {
-    for (e in events) {
-        if (events[e].title == event.title && String(events[e].start) == String(event.start) && String(events[e].end) == String(event.end)) {
-            return true;
-        }
-    }
-    return false
+function containsEvent(events, event, dict) {
+    var hash = String(event.end) + String(event.start) + event.title;
+    return !!dict[hash]
 }
 
 function fc_events(ics, event_properties) {
     events = []
+    dict = {}
     ical_events(
         ics,
         function(event){
             fc_event(event, function(event){
-                if (!containsEvent(events, event)) {
+                if (!containsEvent(events, event, dict)) {
+                    var hash = String(event.end) + String(event.start) + event.title;
                     events.push(merge_events(event_properties, event))
+                    dict[hash] = true
                 }
             })
         },
