@@ -65,18 +65,30 @@ function merge_events(e, f) {
 }
 
 function split_colors(colors) {
-    return colors.match(/.{1,3}/g)
+    try {
+        return colors.match(/.{1,3}/g)
+    } catch (e) {
+        return null
+    }
+}
+
+function getBackgroundColor(colors) {
+    colors = split_colors(colors)
+    if (colors)
+        return 'rgb('+colors[0]+','+colors[1]+','+colors[2]+')'
+    else
+        return null
 }
 
 function fc_event(event, event_callback) {
-    colors = split_colors(event.getFirstPropertyValue('color'))
+    bgColor = getBackgroundColor(event.getFirstPropertyValue('color'))
     e = {
         title:event.getFirstPropertyValue('summary'),
         url:event.getFirstPropertyValue('url'),
         id:event.getFirstPropertyValue('uid'),
         className:['event-'+an_filter(event.getFirstPropertyValue('uid'))],
         allDay:false,
-        backgroundColor: 'rgb('+colors[0]+','+colors[1]+','+colors[2]+')',
+        backgroundColor: bgColor,
         textColor: 'rgb(0,0,0)'
     }
     try {
